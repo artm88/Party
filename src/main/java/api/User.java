@@ -4,6 +4,8 @@ public interface User {
     String getName();
     int getLose();
     int getWin();
-    void reduce(int amount);
-    void increase(int amount);
+    void reduceLose(int amount);
+    void increaseLose(int amount);
+    void reduceWin(int amount);
+    void increaseWin(int amount);
 }
