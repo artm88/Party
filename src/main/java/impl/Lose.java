@@ -1,4 +1,13 @@
 package impl;
 
-public class Lose {
-}
+import api.Game;
+
+/*public class Lose implements Game {
+    @Override
+    public void play(GameImpl game) {
+        if (typeOfObject==object & typeOfInteraction==interaction) {
+            game.increaseLose +=1;
+        }
+
+    }
+}*/
