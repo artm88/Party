@@ -5,7 +5,7 @@ import api.User;
 
 import java.util.Scanner;
 
-public class RegistratorImpl implements Registrator {
+public class RegistratorImpl implements Registrator { // регистратция пользователя
     @Override
     public User registerUser() {
         System.out.print("Добро пожаловать, введите имя: ");
