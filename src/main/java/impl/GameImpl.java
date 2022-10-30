@@ -26,21 +26,23 @@ public class GameImpl implements Game {
         else if (objectOne==2) {
             StringOne = "предмет";}
         String StringTwo = new String();
-        if (objectOne==1) {
+        if (objectTwo==1) {
             StringTwo = "Человек";}
-        else if (objectOne==2) {
+        else if (objectTwo==2) {
             StringTwo = "предмет";}
-        System.out.print("Сделайте выбор (введите номер выбора), при условии, что 1 приведет к выигрошу, а 2 к поражению:" +
+        System.out.print("Сделайте выбор (введите номер выбора):" +
                 "\n [1] "+StringOne+" \n [2] " +StringTwo+" \n [3] Пропуск \n [4] Выход \n");
         Scanner scanner = new Scanner(System.in); // взаимодействие с пользователем
         int temp = scanner.nextInt();
         if (temp==1) { if (objectOne==1) {  // если игрок выбирает 1 сюжетную ветку
-            user.increaseScore(1);}
+            user.increaseScore(1);
+            user.increaseMaxScore(1);}
             else if (objectOne==2) {
             user.reduceScore(1);}
         } else if (temp==2){ // если игрок выбирает 2 сюжетную ветку
             if (objectTwo==1) {
-                user.increaseScore(1);}
+                user.increaseScore(1);
+                user.increaseMaxScore(1);}
             else if (objectTwo==2) {
                 user.reduceScore(1);}
         } else if (temp==3){ // если игрок выбирает пропуск хода

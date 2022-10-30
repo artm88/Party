@@ -7,6 +7,8 @@ public interface User {
     int scoreOfGame();
     void reduceScore(int amount);
     void increaseScore(int amount);
+    int maxScore();
+    void increaseMaxScore(int amount);
     void reduceLose(int amount);
     void increaseLose(int amount);
     void reduceWin(int amount);

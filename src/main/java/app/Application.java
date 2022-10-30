@@ -17,8 +17,9 @@ public class Application {
         int exit=0;
         do {
             game.play();
-            System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame());
-            System.out.println("Нажми цифру 4 для выхода или любую другую цифру для продолжения");
+            System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame()+
+                    " из максимально возможных "+user.maxScore());
+            System.out.println("Нажми еще раз цифру 4 для выхода или любую другую цифру для продолжения");
             Scanner scannerOfExit = new Scanner(System.in); // взаимодействие с пользователем
             exit=scannerOfExit.nextInt();
         } while (exit!=4);

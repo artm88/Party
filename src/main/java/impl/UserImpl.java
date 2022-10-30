@@ -6,6 +6,7 @@ public class UserImpl implements User { // создание профиля по�
 
     private String name;
     private int score;
+    private int maxScore;
     private int lose;
     private int win;
 
@@ -32,6 +33,16 @@ public class UserImpl implements User { // создание профиля по�
     public void increaseScore(int amount) { // увеличение количества поражений пользователя
         this.score+=amount;
     } // увеличение счета игры
+
+    @Override
+    public int maxScore() {  // возвращение количества поражений пользователя
+        return this.maxScore;
+    } // возвращение максимального возможных очков игры
+
+    @Override
+    public void increaseMaxScore(int amount) { // увеличение количества поражений пользователя
+        this.maxScore+=amount;
+    } // подсчет максимального возможных очков игры
 
     @Override
     public int getLose() {  // возвращение количества поражений пользователя
