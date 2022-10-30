@@ -20,8 +20,18 @@ public class GameImpl implements Game {
         Random random = new Random();
         int objectOne = 1+random.nextInt(2); // генерация первого объекта комнаты
         int objectTwo = 1+random.nextInt(2); // генерация второго объекта комнаты
+        String StringOne = new String(); // cвязь сюжетного выбора и типа объекта
+        if (objectOne==1) {
+            StringOne = "Человек";}
+        else if (objectOne==2) {
+            StringOne = "предмет";}
+        String StringTwo = new String();
+        if (objectOne==1) {
+            StringTwo = "Человек";}
+        else if (objectOne==2) {
+            StringTwo = "предмет";}
         System.out.print("Сделайте выбор (введите номер выбора), при условии, что 1 приведет к выигрошу, а 2 к поражению:" +
-                "\n [1] "+objectOne+" \n [2] " +objectTwo+" \n [3] Пропуск \n [4] Выход \n");
+                "\n [1] "+StringOne+" \n [2] " +StringTwo+" \n [3] Пропуск \n [4] Выход \n");
         Scanner scanner = new Scanner(System.in); // взаимодействие с пользователем
         int temp = scanner.nextInt();
         if (temp==1) { if (objectOne==1) {  // если игрок выбирает 1 сюжетную ветку
