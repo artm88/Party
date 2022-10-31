@@ -9,6 +9,7 @@ public interface User {
     void increaseScore(int amount);
     int maxScore();
     void increaseMaxScore(int amount);
+    void reduceMaxScore(int amount);
     void reduceLose(int amount);
     void increaseLose(int amount);
     void reduceWin(int amount);

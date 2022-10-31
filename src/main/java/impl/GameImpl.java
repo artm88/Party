@@ -31,24 +31,24 @@ public class GameImpl implements Game {
         else if (objectTwo==2) {
             StringTwo = "предмет";}
         System.out.print("Сделайте выбор (введите номер выбора):" +
-                "\n [1] "+StringOne+" \n [2] " +StringTwo+" \n [3] Пропуск \n [4] Выход \n");
+                "\n [1] "+StringOne+" \n [2] " +StringTwo+" \n [3] Пропуск \n [4] Устал \n");
         Scanner scanner = new Scanner(System.in); // взаимодействие с пользователем
         int temp = scanner.nextInt();
+        if (objectOne==1||objectTwo==1){user.increaseMaxScore(1);}
         if (temp==1) { if (objectOne==1) {  // если игрок выбирает 1 сюжетную ветку
-            user.increaseScore(1);
-            user.increaseMaxScore(1);}
+            user.increaseScore(1);}
             else if (objectOne==2) {
             user.reduceScore(1);}
         } else if (temp==2){ // если игрок выбирает 2 сюжетную ветку
             if (objectTwo==1) {
-                user.increaseScore(1);
-                user.increaseMaxScore(1);}
+                user.increaseScore(1);}
             else if (objectTwo==2) {
                 user.reduceScore(1);}
         } else if (temp==3){ // если игрок выбирает пропуск хода
             System.out.println("Пропуск");
-        } else if (temp==4){ // если игрок выбирает выйти
-            System.out.println("Выход");
+        } else if (temp==4){ // если игрок устал
+            System.out.println("Устал");
+            if (objectOne==1||objectTwo==1){user.reduceMaxScore(1);}
         }
     }
 }
