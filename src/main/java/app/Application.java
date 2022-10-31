@@ -19,12 +19,15 @@ public class Application {
                 "Вы в комнате, перед Вами выбор куда подойти. Так же Вы можете пройти мимо или отдохнуть."); // главное меню
         do {
             game.play();
-            System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame()+
-                    " из максимально возможных "+user.maxScore()); // отображение счета игры (временная опция)
-            System.out.println("Нажми цифру 5 для выхода или любую другую цифру для продолжения"); // развилка на выход
+            //System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame()+
+                  //  " из максимально возможных "+user.maxScore()); // отображение счета игры (временная опция)
+            System.out.println("Нажмите цифру 5 для выхода или любую другую цифру для продолжения"); // развилка на выход
             Scanner scannerOfExit = new Scanner(System.in); // взаимодействие с пользователем
             exit=scannerOfExit.nextInt();
         } while (exit!=5);
+        if (user.scoreOfGame()>user.maxScore()/2)   {
+        System.out.println(user.getName() + ", Вы социально адаптирован." );}
+        else {System.out.println(user.getName() + ", Вы стараетесь избегать людей." );}
     }
 
 }
