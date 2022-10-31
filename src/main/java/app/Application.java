@@ -15,11 +15,13 @@ public class Application {
         User user = registrator.registerUser();
         Game game = new GameImpl(user);
         int exit=0;
+        System.out.println("Вы приходите на коктейльную пати в честь вашего устройства на работу.\n" +
+                "Вы в комнате, перед Вами выбор куда подойти. Так же Вы можете пройти мимо или отдохнуть."); // главное меню
         do {
             game.play();
             System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame()+
-                    " из максимально возможных "+user.maxScore());
-            System.out.println("Нажми цифру 5 для выхода или любую другую цифру для продолжения");
+                    " из максимально возможных "+user.maxScore()); // отображение счета игры (временная опция)
+            System.out.println("Нажми цифру 5 для выхода или любую другую цифру для продолжения"); // развилка на выход
             Scanner scannerOfExit = new Scanner(System.in); // взаимодействие с пользователем
             exit=scannerOfExit.nextInt();
         } while (exit!=5);

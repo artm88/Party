@@ -11,7 +11,7 @@ public class GameImpl implements Game {
     //private   COUNT_OF_WIN   int
     //private   LIST_OF_PEOPLE   коллекция или БД
     //private   LIST_OF_OBJECT    коллекция или БД
-    private String[] LIST_OF_ENVIRONMENT={"Человек", "Человек с книгой", "Люди", "кресло", "шкаф", "угол"};
+    private String[] LIST_OF_ENVIRONMENT={"Человеку", "Человеку с книгой", "Людям", "креслу", "шкафу", "углу"};
     private final User user;
     public GameImpl(User user) {
         this.user = user;
@@ -24,7 +24,7 @@ public class GameImpl implements Game {
         String StringOne = LIST_OF_ENVIRONMENT[objectOne]; // cвязь сюжетного выбора и типа объекта
         String StringTwo = LIST_OF_ENVIRONMENT[objectTwo];
         System.out.print("Сделайте выбор (введите номер выбора):" +
-                "\n [1] "+StringOne+" \n [2] " +StringTwo+" \n [3] Не хочу решать \n [4] Отдохнуть \n");
+                "\n [1] Подойти к "+StringOne+" \n [2] Подойти к " +StringTwo+" \n [3] Пройти дальше \n [4] Отдохнуть \n");
         Scanner scanner = new Scanner(System.in); // взаимодействие с пользователем
         int temp = scanner.nextInt();
         if (objectOne<3||objectTwo<3){user.increaseMaxScore(1);}
@@ -37,10 +37,10 @@ public class GameImpl implements Game {
                 user.increaseScore(1);}
             else if (objectTwo>=3) {
                 user.reduceScore(1);}
-        } else if (temp==3){ // если игрок выбирает пропуск хода, считается за проигрыш
-            System.out.println("Пропуск");
-        } else if (temp==4){ // если игрок устал, ход не пишется в общий счёт
-            System.out.println("Устал");
+        } else if (temp==3){ // если игрок выбирает пропуск хода, считается за проигрыш в случае наличия человек в выборе
+            System.out.println("Проходите дальше...");
+        } else if (temp==4){ // если игрок выбирает отдых, то ход не пишется в общий счёт
+            System.out.println("Отдыхаете...");
             if (objectOne<3||objectTwo<3){user.reduceMaxScore(1);}
         }
     }
