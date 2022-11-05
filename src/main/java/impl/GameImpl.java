@@ -43,5 +43,10 @@ public class GameImpl implements Game {
             System.out.println("Отдыхаете...");
             if (objectOne<3||objectTwo<3){user.reduceMaxScore(1);}
         }
+        if (user.maxScore()<11){
+            int count=10-user.maxScore();
+            System.out.println(user.getName() + ", сделан ход номер " + user.maxScore()+
+                    " для минимально точно результата осталось "+count+ " ходов.");} // отображение хода игры
+        else {System.out.println(user.getName() + ", сделан ход номер " + user.maxScore());}
     }
 }
