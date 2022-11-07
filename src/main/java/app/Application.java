@@ -16,11 +16,13 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) throws FileNotFoundException {
         Registrator registrator = new RegistratorImpl();
-        String LOGS = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\log.txt";
-        PrintWriter printWriterLOGS = new PrintWriter(new FileOutputStream(LOGS));
-        printWriterLOGS.printf("Регистратция пройдена.\n");
+        //String LOGS = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\log.txt";
+        //PrintWriter printWriterLOGS = new PrintWriter(new FileOutputStream(LOGS));
+        //printWriterLOGS.printf("Регистратция пройдена.\n");
         User user = registrator.registerUser();
-        printWriterLOGS.printf("Добавлено имя пользователя: "+ user.getName()+". Введен счет пользователя: "+
+        String LOGS = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\"+user.getName()+"_log.txt";
+        PrintWriter printWriterLOGS = new PrintWriter(new FileOutputStream(LOGS));
+        printWriterLOGS.printf("Регистратция пройдена. Добавлено имя пользователя: "+ user.getName()+". Введен счет пользователя: "+
                 user.scoreOfGame()+". Введен максимальный счет теста: "+user.maxScore());
         Game game = new GameImpl(user);
         printWriterLOGS.printf("\nЗагружена игра.\n");
@@ -50,7 +52,7 @@ public class Application {
             exit=scannerOfExit.nextInt();
         } while (exit!=5);
         if (user.scoreOfGame()>user.maxScore()/2)   {
-        System.out.println(user.getName() + ", Вы социально адаптирован." );}
+        System.out.println(user.getName() + ", Вы социально адаптированы." );}
         else {System.out.println(user.getName() + ", Вы стараетесь избегать людей." );}
         System.out.println("Нажмите цифру 6 для вывода статистики"); // развилка на статистику
         Scanner scannerOfStat = new Scanner(System.in);
@@ -62,7 +64,7 @@ public class Application {
             System.out.println("Баллов социальной адаптации " + Math.round(10*user.scoreOfGame()/ user.maxScore()) +
                     " по 10-бальной шкале.");
         }
-        String STATISTIC = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\STATISTIC.txt";
+        String STATISTIC = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\"+user.getName()+"_statistic.txt";
         try (PrintWriter printWriterSTATISTIC = new PrintWriter(new FileOutputStream(STATISTIC))) {
             printWriterSTATISTIC.printf(user.getName() + " имеет " + user.scoreOfGame() +
                     " баллов выбора людей из максимально возможных " + user.maxScore()+
