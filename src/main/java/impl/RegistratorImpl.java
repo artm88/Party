@@ -9,8 +9,8 @@ public class RegistratorImpl implements Registrator { // регистратци�
     @Override
     public User registerUser() {
         System.out.print("Добро пожаловать, введите имя: ");
-        Scanner scanner=new Scanner(System.in);
-        String name = scanner.nextLine();
+        Scanner scannerName=new Scanner(System.in);
+        String name = scannerName.nextLine();
         return new UserImpl(name);
     }
 }

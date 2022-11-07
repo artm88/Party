@@ -3,6 +3,7 @@ package impl;
 import api.Game;
 import api.User;
 
+import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class GameImpl implements Game {
     //private   LIST_OF_OBJECT    коллекция или БД
     private String[] LIST_OF_ENVIRONMENT={"Человеку", "Человеку с книгой", "Людям", "креслу", "шкафу", "углу"};
     private final User user;
-    public GameImpl(User user) {
+    public GameImpl(User user) throws FileNotFoundException {
         this.user = user;
     }
     @Override
