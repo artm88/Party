@@ -17,8 +17,11 @@ public class GameImpl implements Game {
     public GameImpl(User user) throws FileNotFoundException {
         this.user = user;
     }
+
     @Override
     public void play() {
+
+        // генерация окружения
         Random random = new Random();
         int objectOne = random.nextInt(6); // генерация первого объекта комнаты, 6 - число объектов
         int objectTwo = random.nextInt(6); // генерация второго объекта комнаты
@@ -26,6 +29,8 @@ public class GameImpl implements Game {
         String StringTwo = LIST_OF_ENVIRONMENT[objectTwo];
         System.out.print("Сделайте выбор (введите номер выбора):" +
                 "\n [1] Подойти к "+StringOne+" \n [2] Подойти к " +StringTwo+" \n [3] Пройти дальше \n [4] Отдохнуть \n");
+
+        //основная часть игры
         Scanner scanner = new Scanner(System.in); // взаимодействие с пользователем
         int temp = scanner.nextInt();
         if (objectOne<3||objectTwo<3){user.increaseMaxScore(1);}

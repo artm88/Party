@@ -7,8 +7,8 @@ public class UserImpl implements User { // создание профиля по�
     private String name;
     private int score;
     private int maxScore;
-    private int lose;
-    private int win;
+    /*private int lose;
+    private int win;*/
 
     public UserImpl (String name){
         this.name=name;
@@ -49,7 +49,9 @@ public class UserImpl implements User { // создание профиля по�
         this.maxScore-=amount;
     } // подсчет максимального возможных очков игры
 
-    @Override
+
+    // часть для шаблона проектирования Состояние
+   /* @Override
     public int getLose() {  // возвращение количества поражений пользователя
         return this.lose;
     }
@@ -77,5 +79,5 @@ public class UserImpl implements User { // создание профиля по�
     @Override
     public void increaseWin(int amount) {
         this.win+=amount;
-    } // увеличение количества побед пользователя
+    } // увеличение количества побед пользователя*/
 }
