@@ -24,3 +24,9 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/target/
+/target/classes/
+/target/generated-sources/
+/target/maven-archiver/
+/target/maven-status/
+/target/Party-1.0-SNAPSHOT.jar
