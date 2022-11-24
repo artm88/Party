@@ -3,7 +3,10 @@ package impl;
 import api.Game;
 import api.User;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,7 +15,9 @@ public class GameImpl implements Game {
     //private   COUNT_OF_WIN   int
     //private   LIST_OF_PEOPLE   коллекция или БД
     //private   LIST_OF_OBJECT    коллекция или БД
-    private String[] LIST_OF_ENVIRONMENT={"Человеку", "Человеку с книгой", "Людям", "креслу", "шкафу", "углу"};
+
+    List<String> L_O_ENVIRONMENTS=getArrayOfString(); // вызов метода подгрузки файла с окружением
+    //private String[] LIST_OF_ENVIRONMENT={"Человеку", "Человеку с книгой", "Людям", "креслу", "шкафу", "углу"};
     private final User user;
     public GameImpl(User user) throws FileNotFoundException {
         this.user = user;
@@ -25,8 +30,8 @@ public class GameImpl implements Game {
         Random random = new Random();
         int objectOne = random.nextInt(6); // генерация первого объекта комнаты, 6 - число объектов
         int objectTwo = random.nextInt(6); // генерация второго объекта комнаты
-        String StringOne = LIST_OF_ENVIRONMENT[objectOne]; // cвязь сюжетного выбора и типа объекта
-        String StringTwo = LIST_OF_ENVIRONMENT[objectTwo];
+        String StringOne = L_O_ENVIRONMENTS.get(objectOne); // cвязь сюжетного выбора и типа объекта
+        String StringTwo = L_O_ENVIRONMENTS.get(objectTwo);
         System.out.print("Сделайте выбор (введите номер выбора):" +
                 "\n [1] Подойти к "+StringOne+" \n [2] Подойти к " +StringTwo+" \n [3] Пройти дальше \n [4] Отдохнуть \n");
 
@@ -54,5 +59,22 @@ public class GameImpl implements Game {
             System.out.println(user.getName() + ", сделан ход номер " + user.maxScore()+
                     " для точного результата осталось "+count+ " ходов.");} // отображение хода игры
         else {System.out.println(user.getName() + ", сделан ход номер " + user.maxScore());}
+    }
+
+    private List<String> getArrayOfString(){ // подгрузка файла с окружением
+        String ENVIRONMENT = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\ENVIRONMENT.txt";
+        List<String> ENVIRONMENTS= new ArrayList<>();
+        try (Scanner scannerENVIRONMENT = new Scanner(new FileInputStream(ENVIRONMENT))) {
+            //int iE = 0;
+            while (scannerENVIRONMENT.hasNextLine()){
+                ENVIRONMENTS.add(scannerENVIRONMENT.nextLine());
+                //System.out.println(ENVIRONMENTS.get(iE));
+                //System.out.println(scannerENVIRONMENT.nextLine());
+                //iE++;
+            }
+        } catch (FileNotFoundException e){
+            System.out.println("Не найден Файл!");
+        }
+        return ENVIRONMENTS;
     }
 }

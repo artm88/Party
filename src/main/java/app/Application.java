@@ -6,11 +6,10 @@ import api.User;
 import impl.GameImpl;
 import impl.RegistratorImpl;
 
-import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.sql.*;
 import java.util.Scanner;
 
 public class Application {
@@ -27,21 +26,6 @@ public class Application {
         int exit=0;
         System.out.println("Добро пожаловать на коктейльную пати в честь вашего устройства на работу.\n" +
                 "Вы в комнате, перед Вами выбор куда подойти. Так же Вы можете пройти мимо или отдохнуть.\n"); // главное меню
-
-        //  подгузка объектов
-        /*String ENVIRONMENT = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\ENVIRONMENT.txt";
-        String[] ENVIRONMENTS={};
-        try (Scanner scannerENVIRONMENT = new Scanner(new FileInputStream(ENVIRONMENT))) {
-            int iE = 0;
-            while (scannerENVIRONMENT.hasNextLine()){
-                //ENVIRONMENTS[iE]=scannerENVIRONMENT.nextLine();
-                //System.out.println(ENVIRONMENTS[iE]);
-                System.out.println(scannerENVIRONMENT.nextLine());
-                iE++;
-            }
-        } catch (FileNotFoundException e){
-            System.out.println("Не найден Файл!");
-        }*/
 
         //  сама игра
         do {
@@ -68,6 +52,7 @@ public class Application {
             System.out.println("Баллов социальной адаптации " + Math.round(10*user.scoreOfGame()/ user.maxScore()) +
                     " по 10-бальной шкале.");
         }
+        else {}
 
         // запись статистики игрока
         String STATISTIC = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\"+user.getName()+"_statistic.txt";
