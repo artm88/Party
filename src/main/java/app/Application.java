@@ -21,29 +21,27 @@ public class Application {
 
         String LOGS = "C:\\Users\\artem\\IdeaProjects\\Party\\src\\main\\resources\\"+user.getName()+"_log.txt";//логи
         PrintWriter printWriterLOGS = new PrintWriter(new FileOutputStream(LOGS));
-
         printWriterLOGS.printf("Регистратция пройдена. Добавлено имя пользователя: "+ user.getName()+
                 ". Введен счет пользователя: "+user.scoreOfGame()+". Введен максимальный счет теста: "+user.maxScore());
 
         Game game = new GameImpl(user);
+
         printWriterLOGS.printf("\nЗагружена игра.\n");//логи
 
         int exit=0;
-        System.out.println("Добро пожаловать на коктейльную пати в честь вашего устройства на работу.\n" +
-                "Вы в комнате, перед Вами выбор куда подойти. " +
-                "Так же Вы можете пройти мимо или отдохнуть.\n"); // главное меню
-
-        //
-
+        int numOfLevel=1;
         //  сама игра
         do {
             game.play();
 
-            printWriterLOGS.printf("Пройден уровень игры.\n");//логи
+            printWriterLOGS.printf("Пройден "+numOfLevel+" уровень игры.\n");//логи
+            numOfLevel++;
 
             //System.out.println(user.getName() + ", твой счет игры " + user.scoreOfGame()+
                   //  " из максимально возможных "+user.maxScore()); // отображение счета игры (временная опция)
+
             System.out.println("Нажмите цифру 5 для выхода или любую другую цифру для продолжения"); //развилка на выход
+
             Scanner scannerOfExit = new Scanner(System.in); // взаимодействие с пользователем
             exit=scannerOfExit.nextInt();
         } while (exit!=5);
